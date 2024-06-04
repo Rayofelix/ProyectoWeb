@@ -275,6 +275,77 @@ app.put('/api/articles/id/:id',(req,res)=>{
     });
 });
 
+// =====================================================SALES======================================================
+// seleccionar todos los ventas
+app.get('/api/sales',(req,res)=>{
+    conexion.query('select * from sales',(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(rows);
+        }
+    });
+});
+// Seleccionar una venta específico por ID
+app.get('/api/sales/id/:id', (req, res) => {
+    conexion.query('SELECT * FROM sales WHERE id = ?', [req.params.id], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+
+// Seleccionar un venta específico por nombre
+app.get('/api/sales/sale_date/:sale_date', (req, res) => {
+    conexion.query('SELECT * FROM sales WHERE sale_date = ?', [req.params.sale_datedate], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+app.delete('/api/sales/:id',(req,res)=>{
+    let id = req.params.id;
+    conexion.query('delete from sales where id=?',[id],(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(rows);
+        }
+    });
+});
+app.post('/api/sales',(req,res)=>{
+    let data = {
+        id: req.body.id,
+        sale_date: req.body.sale_date
+    };
+    let sql = 'insert into sales set ?';
+    conexion.query(sql,data,(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(rows);
+        }
+    });
+});
+
+// Actualizar
+app.put('/api/sales/id/:id',(req,res)=>{
+    let id = req.params.id; // Solo este viene de params
+    let sale_date = req.body.sale_date;
+
+    let sql = 'update sales set sale_date = ? where id = ?';
+    conexion.query(sql,[sale_date,id],(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(rows);
+        }
+    });
+});
 
 
 // Tercer paso
