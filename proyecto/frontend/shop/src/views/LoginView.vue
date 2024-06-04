@@ -25,7 +25,7 @@
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 
-              <button @click.prevent="login()" class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+              <button @click.prevent="login()" class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
 
             </div>
 

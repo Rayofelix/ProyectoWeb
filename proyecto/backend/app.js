@@ -355,42 +355,6 @@ app.listen(puerto,function(){
     console.log('Servidor escuchando por puerto: ' + puerto);
 });
 
-//=====================================================SALES====================================
-// seleccionar todos las ventas
-
-app.get('/api/sales',(req,res)=>{
-    conexion.query('select * from sales',(error,rows)=>{
-        if(error){
-            throw error;
-        }else{
-            res.send(rows);
-        }
-    });
-});
-
-// Seleccionar una venta específica por ID
-app.get('/api/sales/id/:id', (req, res) => {
-    conexion.query('SELECT * FROM sales WHERE id = ?', [req.params.id], (error, rows) => {
-        if (error) {
-            throw error;
-        } else {
-            res.send(rows);
-        }
-    });
-});
-
-//Eliminar una venta
-app.delete('/api/sales/:id',(req,res)=>{
-    let id = req.params.id;
-    conexion.query('delete from sales where id=?',[id],(error,rows)=>{
-        if(error){
-            throw error;
-        }else{
-            res.send(rows);
-        }
-    });
-});
-
 //=====================================================SALE_DETAILS====================================
 // seleccionar todos las detalles
 
