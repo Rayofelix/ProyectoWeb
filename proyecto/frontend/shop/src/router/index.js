@@ -12,6 +12,7 @@ import EmployeeEditView from '../views/EmployeesEditView.vue'
 import ArticlesView from '../views/ArticlesView.vue'
 import ArticlesCreateView from '../views/ArticlesCreateView.vue'
 import ArticlesEditView from '../views/ArticlesEditView.vue'
+import SalesCreateView from '../views/SalesCreateView.vue'
 import { record } from 'zod'
 import { getAuth } from 'firebase/auth'
 
@@ -92,6 +93,12 @@ const router = createRouter({
       path: '/articles/create',
       name: 'articlesCreate',
       component: ArticlesCreateView
+    },
+
+    {
+      path: '/sales/create',
+      name: 'salesCreate',
+      component: SalesCreateView
     },
     {
       path: '/about',
