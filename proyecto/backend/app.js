@@ -354,3 +354,109 @@ let puerto = 3000;
 app.listen(puerto,function(){
     console.log('Servidor escuchando por puerto: ' + puerto);
 });
+
+//=====================================================SALES====================================
+// seleccionar todos las ventas
+
+app.get('/api/sales',(req,res)=>{
+    conexion.query('select * from sales',(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(rows);
+        }
+    });
+});
+
+// Seleccionar una venta específica por ID
+app.get('/api/sales/id/:id', (req, res) => {
+    conexion.query('SELECT * FROM sales WHERE id = ?', [req.params.id], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+
+//Eliminar una venta
+app.delete('/api/sales/:id',(req,res)=>{
+    let id = req.params.id;
+    conexion.query('delete from sales where id=?',[id],(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(rows);
+        }
+    });
+});
+
+//=====================================================SALE_DETAILS====================================
+// seleccionar todos las detalles
+
+app.get('/api/sale_details',(req,res)=>{
+    conexion.query('select * from sale_details',(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(rows);
+        }
+    });
+});
+
+// Seleccionar una venta específica por ID
+app.get('/api/sale_details/id/:id', (req, res) => {
+    conexion.query('SELECT * FROM sale_details WHERE id = ?', [req.params.id], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+
+// Seleccionar una venta específica por venta
+app.get('/api/sale_details/id/:id', (req, res) => {
+    conexion.query('SELECT * FROM sales WHERE sale = ?', [req.params.id], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+
+// Seleccionar una venta específica por empleado
+app.get('/api/sale_details/id/:id', (req, res) => {
+    conexion.query('SELECT * FROM sales WHERE employee = ?', [req.params.id], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+
+// Seleccionar una venta específica por cliente
+app.get('/api/sale_details/id/:id', (req, res) => {
+    conexion.query('SELECT * FROM sales WHERE client = ?', [req.params.id], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+
+// Seleccionar una venta específica por articulo
+app.get('/api/sale_details/id/:id', (req, res) => {
+    conexion.query('SELECT * FROM sales WHERE article = ?', [req.params.id], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+
+
