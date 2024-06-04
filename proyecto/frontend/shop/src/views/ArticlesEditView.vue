@@ -20,7 +20,7 @@
                         <ErrorMessage name="description" class="errorValidation" />
                     </div>
                     <div class="mb-3">
-                        Stock
+                        Stocks
                         <Field name="stock" id="stock" type="number" class="form-control" v-model="model.article.stock"/>
                         <ErrorMessage name="stock" class="errorValidation" />
                     </div>
