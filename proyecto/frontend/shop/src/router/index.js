@@ -15,6 +15,7 @@ import ArticlesEditView from '../views/ArticlesEditView.vue'
 
 import SalesView from '@/views/SalesView.vue'
 import Sales_DetailsView from '../views/Sales_DetailsView.vue'
+import Sales_DetailsCreateView from '../views/Sales_DetailsCreateView.vue'
 
 import SalesCreateView from '../views/SalesCreateView.vue'
 
@@ -114,6 +115,11 @@ const router = createRouter({
       path: '/sales_details/id/:id/details',
       name: 'sales_details',
       component: Sales_DetailsView
+    },
+    {
+      path: '/sales_details/create',
+      name: 'sales_details',
+      component: Sales_DetailsCreateView
     },
     {
       path: '/about',
