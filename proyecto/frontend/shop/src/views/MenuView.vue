@@ -9,7 +9,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <RouterLink class="navbar-brand" to="/clients/login">Login</RouterLink>
+                        <RouterLink class="navbar-brand" to="/clients/login">Sign Up</RouterLink>
                         <RouterLink class="navbar-brand" to="/clients/signIn">Sign In</RouterLink>
                         <RouterLink class="navbar-brand" to="/clients">Clients</RouterLink>
                         <RouterLink class="navbar-brand" to="/employees">Employees</RouterLink>

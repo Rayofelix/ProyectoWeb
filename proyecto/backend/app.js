@@ -184,7 +184,7 @@ app.post('/api/employees',(req,res)=>{
 });
 
 // Actualizar
-app.put('/api/employees/:id',(req,res)=>{
+app.put('/api/employees/id/:id',(req,res)=>{
     let id = req.params.id; // Solo este viene de params
     let name = req.body.name;
     let lastname = req.body.lastname;
