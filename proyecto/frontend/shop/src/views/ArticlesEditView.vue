@@ -20,7 +20,7 @@
                         <ErrorMessage name="description" class="errorValidation" />
                     </div>
                     <div class="mb-3">
-                        Stocks
+                        Stock
                         <Field name="stock" id="stock" type="number" class="form-control" v-model="model.article.stock"/>
                         <ErrorMessage name="stock" class="errorValidation" />
                     </div>
@@ -73,14 +73,14 @@ export default{
     },
     methods:{
         getArticle(idArticle){
-            axios.get('http://localhost:3000/api/articles/' + idArticle).then(res=>{
+            axios.get('http://localhost:3000/api/articles/id/' + idArticle).then(res=>{
                 // this.model.client.id  = res.data[0].id;  este es la manera 'manual' de recuperar datos uno por uno por posicion
                 this.model.article = res.data[0]; //este copia todo siempre y cuando este en el mismo orden
             });
         },
         onOK(){
             alert('Article Updated Successfully');
-            axios.put('http://localhost:3000/api/articles/' + this.$route.params.id,this.model.article).then(res =>{
+            axios.put('http://localhost:3000/api/articles/id/' + this.$route.params.id,this.model.article).then(res =>{
                 if(res.data.affectedRows == 1){
                     this.model.article = { //Limpiar cuadros de texto al dar click al boton
                         id:'',

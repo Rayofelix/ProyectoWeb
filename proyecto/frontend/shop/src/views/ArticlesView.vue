@@ -26,7 +26,7 @@
                             <td>{{ article.stock }} units</td>
                             <td>${{ article.price }}</td>
                             <td>
-                                <RouterLink :to="{path: '/articles/'+ article.id +'/edit' }" class="btn btn-success">
+                                <RouterLink :to="{path: '/articles/id/'+ article.id +'/edit' }" class="btn btn-success">
                                     Edit
                                 </RouterLink>
                                 <button class="btn btn-danger" @click="deleteArticles(article.id)">

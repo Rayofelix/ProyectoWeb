@@ -26,7 +26,7 @@
                             <td>{{ employee.lastname }}</td>
                             <td>{{ employee.department }}</td>
                             <td>
-                                <RouterLink :to="{path: '/employees/'+ employee.id +'/edit' }" class="btn btn-success">
+                                <RouterLink :to="{path: '/employees/id'+ employee.id +'/edit' }" class="btn btn-success">
                                     Edit
                                 </RouterLink>
                                 <button class="btn btn-danger" @click="deleteEmployees(employee.id)">
@@ -37,7 +37,7 @@
                     </tbody>
                     <tbody v-else>
                         <tr>
-                            <td colspan="9" style="text-align: center;"> Sin registros!</td>
+                            <td colspan="9" style="text-align: center;">Sin registros!</td>
                         </tr>
                     </tbody>
                 </table>

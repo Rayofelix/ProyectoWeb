@@ -73,14 +73,14 @@ export default{
     },
     methods:{
         getEmployee(idEmployee){
-            axios.get('http://localhost:3000/api/employees/' + idEmployee).then(res=>{
+            axios.get('http://localhost:3000/api/employees/id/' + idEmployee).then(res=>{
                 // this.model.client.id  = res.data[0].id;  este es la manera 'manual' de recuperar datos uno por uno por posicion
                 this.model.employee = res.data[0]; //este copia todo siempre y cuando este en el mismo orden
             });
         },
         onOK(){
             alert('Employee Updated Successfully');
-            axios.put('http://localhost:3000/api/employees/' + this.$route.params.id,this.model.employee).then(res =>{
+            axios.put('http://localhost:3000/api/employees/id/' + this.$route.params.id,this.model.employee).then(res =>{
                 if(res.data.affectedRows == 1){
                     this.model.employee = { //Limpiar cuadros de texto al dar click al boton
                         id:'',
