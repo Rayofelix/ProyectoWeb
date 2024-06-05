@@ -93,7 +93,7 @@ app.post('/api/clients',(req,res)=>{
         phone: req.body.phone,
         rfc: req.body.rfc,
         curp: req.body.curp,
-        cp: req.body.cps
+        cp: req.body.cp
     };
     let sql = 'insert into clients set ?';
     conexion.query(sql,data,(error,rows)=>{
@@ -381,7 +381,7 @@ app.get('/api/articles/id/:id', (req, res) => {
 
 // Seleccionar una venta específica por ID
 app.get('/api/sale_details/id/:id', (req, res) => {
-    conexion.query('SELECT * FROM sale_details WHERE id = ?', [req.params.id], (error, rows) => {
+    conexion.query('SELECT * FROM sale_details WHERE sale = ?', [req.params.id], (error, rows) => {
         if (error) {
             throw error;
         } else {
@@ -429,6 +429,29 @@ app.get('/api/sale_details/id/:id', (req, res) => {
         if (error) {
             throw error;
         } else {
+            res.send(rows);
+        }
+    });
+});
+
+// <form action='url' method='post'>
+// req.body
+// se recomienda usar id y name en forms para hacer referencias
+app.post('/api/sale_details',(req,res)=>{
+    let data = {
+        id: req.body.id,
+        sale: req.body.sale,
+        employee: req.body.employee,
+        client: req.body.client,
+        article: req.body.article,
+        stock: req.body.stock,
+        price: req.body.price,
+    };
+    let sql = 'insert into sale_Details set ?';
+    conexion.query(sql,data,(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
             res.send(rows);
         }
     });

@@ -84,7 +84,7 @@ import * as zod from 'zod';
 import axios from 'axios';
 
 export default{
-    name: 'ClientsCreate',
+    name: 'Sale_DetailsCreate',
     components:{ Field,Form,ErrorMessage },
     data(){
         const validationSchema =toTypedSchema(
@@ -145,9 +145,9 @@ export default{
     methods:{
         onOK(){
             alert('Sale Detail Added Successfully');
-            axios.post('http://localhost:3000/api/sales_details',this.model.sale_detail).then(res =>{
+            axios.post('http://localhost:3000/api/sale_details',this.model.sale_detail).then(res =>{
                 if(res.data.affectedRows == 1){
-                    this.model.clsale_detailient = { //Limpiar cuadros de texto al dar click al boton
+                    this.model.sale_detail = { //Limpiar cuadros de texto al dar click al boton
                         id:'',
                         sale:'',
                         employee:'',
