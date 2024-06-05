@@ -368,6 +368,17 @@ app.get('/api/sale_details',(req,res)=>{
     });
 });
 
+// Obtener nombre de articulo
+app.get('/api/articles/id/:id', (req, res) => {
+    conexion.query('SELECT description FROM articles WHERE id = ?', [req.params.id], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+
 // Seleccionar una venta específica por ID
 app.get('/api/sale_details/id/:id', (req, res) => {
     conexion.query('SELECT * FROM sale_details WHERE id = ?', [req.params.id], (error, rows) => {
