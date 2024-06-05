@@ -118,7 +118,7 @@ const router = createRouter({
     },
     {
       path: '/sales_details/create',
-      name: 'sales_details',
+      name: 'sales_detailscreate',
       component: Sales_DetailsCreateView
     },
     {

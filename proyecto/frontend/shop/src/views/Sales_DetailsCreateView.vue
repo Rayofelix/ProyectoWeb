@@ -31,7 +31,7 @@
                         </div>
                         <div class="columnRight">
                             Name
-                            <Field name="idEmployee" id="idEmployee" type="text" class="form-control border rounded" readonly/>
+                            <Field name="idEmployee" id="idEmployee" type="text" class="form-control border rounded" v-model="model.employee.name" readonly/>
                         </div>
                     </div>
                     <div class="mb-3 d-flex justify-content-between">
@@ -42,7 +42,7 @@
                         </div>
                         <div class="columnRight">
                             Name
-                            <Field name="idClient" id="idClient" type="text" class="form-control border rounded"  readonly/>
+                            <Field name="idClient" v-model="model.client.name" id="idClient" type="text" class="form-control border rounded"  readonly/>
                         </div>
                     </div>
                     <div class="mb-3 d-flex justify-content-between">
@@ -53,7 +53,7 @@
                         </div>
                         <div class="columnRight">
                             Name
-                            <Field name="idArticle" id="idArticle" type="text" class="form-control border rounded"  readonly/>
+                            <Field name="idArticle" v-model="model.article.description" id="idArticle" type="text" class="form-control border rounded"  readonly/>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -108,8 +108,31 @@ export default{
                     article:'',
                     stock:'',
                     price:'',
+                },
+                employee:{
+                    name: ''
+                },
+                client:{
+                    name:''
+                },
+                article:{
+                    description:''
                 }
             }
+        }
+    },
+    watch: {
+        "model.sale_detail.employee"(newValue){
+            axios.get("http://localhost:3000/api/employees/id/"+newValue)
+            .then(res => this.model.employee = res.data[0])
+        },
+        "model.sale_detail.client"(newValue2){
+            axios.get("http://localhost:3000/api/clients/id/"+newValue2)
+            .then(res => this.model.client = res.data[0])
+        },
+        "model.sale_detail.article"(newValue3){
+            axios.get("http://localhost:3000/api/articles/id/"+newValue3)
+            .then(res => this.model.article = res.data[0])
         }
     },
     computed: {
