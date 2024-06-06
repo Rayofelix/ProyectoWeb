@@ -16,6 +16,7 @@ import ArticlesEditView from '../views/ArticlesEditView.vue'
 import SalesView from '@/views/SalesView.vue'
 import Sales_DetailsView from '../views/Sales_DetailsView.vue'
 import Sales_DetailsCreateView from '../views/Sales_DetailsCreateView.vue'
+import Sales_DetailsEditView from '../views/Sales_DetailsEditView.vue'
 
 import SalesCreateView from '../views/SalesCreateView.vue'
 
@@ -120,6 +121,11 @@ const router = createRouter({
       path: '/sales_details/create',
       name: 'sales_detailscreate',
       component: Sales_DetailsCreateView
+    },
+    {
+      path: '/sale_details/id/:id/edit',
+      name: 'sale_detailsedit',
+      component: Sales_DetailsEditView
     },
     {
       path: '/about',
