@@ -25,6 +25,7 @@
 <script>
 import { getAuth,onAuthStateChanged,signOut } from "firebase/auth";
 import { RouterLink } from 'vue-router';
+import { Icon } from '@iconify/vue'
 
 export default{
     name:'MenuView',
