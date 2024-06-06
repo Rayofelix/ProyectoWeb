@@ -457,4 +457,41 @@ app.post('/api/sale_details',(req,res)=>{
     });
 });
 
+// Actualizar
+app.put('/api/sale_details/id/:id',(req,res)=>{
+    let id = req.params.id; // Solo este viene de params
+    let article = req.body.article;
+    let stock = req.body.stock;
+    let price = req.body.price;
+    let sql = 'update sale_details set article = ?, stock = ?,price = ? where id = ?';
+    conexion.query(sql,[article,stock,price,id],(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(rows);
+        }
+    });
+});
 
+// Seleccionar una venta específica por empleado
+app.get('/api/sale_details/ids/:id', (req, res) => {
+    conexion.query('SELECT id, article, stock, price FROM sale_details WHERE id = ?', [req.params.id], (error, rows) => {
+        if (error) {
+            throw error;
+        } else {
+            res.send(rows);
+        }
+    });
+});
+
+//Eliminar un detalles
+app.delete('/api/sale_details/:id',(req,res)=>{
+    let id = req.params.id;
+    conexion.query('delete from sale_details where id=?',[id],(error,rows)=>{
+        if(error){
+            throw error;
+        }else{
+            res.send(rows);
+        }
+    });
+});

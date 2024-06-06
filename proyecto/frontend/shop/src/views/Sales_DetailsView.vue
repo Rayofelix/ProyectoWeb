@@ -77,7 +77,7 @@
             deleteSale_Details(idSale_DetailDelete){
                 axios.delete('http://localhost:3000/api/sale_details/'+idSale_DetailDelete).then(res=>{
                     console.log(res);
-                    this.getSale_Details();
+                    this.getSales_Details(this.$route.params.id);
                 })
             },
             getDetailsSaleOrEmpleyeeOrClientOrArticle() {
