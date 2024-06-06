@@ -3,29 +3,29 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
+        <div class="card titleCard" style="border-radius: 1rem;">
+          <div class="card-body p-5">
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2>
-              <p class="text-white-50 mb-5">Please enter your login and password!</p>
+              <h2 class="title text-uppercase">Sign up</h2>
+              <p class="subtitle mb-5">Please enter your login and password!</p>
 
               <div v-if="message==1" class="alert alert-primary" role="alert">
                 Registered User Successfully!
               </div>
 
               <div data-mdb-input-init class="form-outline form-white mb-4">
-                <input v-model="email" type="email" id="typeEmailX" class="form-control form-control-lg" />
-                <label class="form-label" for="typeEmailX">Email</label>
+                <label class="form-label subtitle" for="typeEmailX">Email</label>
+                <input placeholder="Enter your email" v-model="email" type="email" id="typeEmailX" class="form-control form-control-lg inputDesign" />
               </div>
 
               <div data-mdb-input-init class="form-outline form-white mb-4">
-                <input v-model="password" type="password" id="typePasswordX" class="form-control form-control-lg" />
-                <label class="form-label" for="typePasswordX">Password</label>
+                <label class="form-label subtitle" for="typePasswordX">Password</label>
+                <input placeholder="Enter your password" v-model="password" type="password" id="typePasswordX" class="form-control form-control-lg inputDesign" />
               </div>
 
-              <button @click.prevent="login()" class="btn btn-outline-light btn-lg px-5" type="submit">Confirm</button>
+              <button @click.prevent="login()" class="btnDesign" type="submit">Confirm</button>
 
             </div>
 
@@ -38,6 +38,7 @@
 </template>
 <script>
 import { getAuth,createUserWithEmailAndPassword } from 'firebase/auth';
+import '../assets/base.css'
   export default{
     name: "LoginView",
     data(){

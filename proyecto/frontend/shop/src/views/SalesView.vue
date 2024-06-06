@@ -2,7 +2,7 @@
     <div class="container">
         <div class="container-search">
             <input class="search" type="search" name="searchSale" id="searchSale" placeholder="Search">
-            <button @click="getSalesId()" class="btn btnSearch"><Icon icon="hugeicons:search-02" /></button>
+            <button @click="getSalesId()" class="btn btnSearch"><Icon icon="gravity-ui:magnifier" width="1.2em" height="1.2em"  style="color: white" /></button>
         </div>
         <div class="card">
             <div class="card-header">
